@@ -19,7 +19,7 @@
 
 /**
  * @file
- *   CFS Checksum (CS) Applications provides the service of background
+ *   CFS Checksum (CS) Application provides the service of background
  *   checksumming user defined objects in the CFS
  */
 #include <string.h>
