@@ -48,13 +48,13 @@
 CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue,
                                     bool *DoneWithEntry)
 {
-    uint32  OffsetIntoCurrEntry     = 0;
-    cpuaddr FirstAddrThisCycle      = 0;
-    uint32  NumBytesThisCycle       = 0;
-    int32   NumBytesRemainingCycles = 0;
-    uint32  NewChecksumValue        = 0;
+    uint32       OffsetIntoCurrEntry     = 0;
+    cpuaddr      FirstAddrThisCycle      = 0;
+    uint32       NumBytesThisCycle       = 0;
+    int32        NumBytesRemainingCycles = 0;
+    uint32       NewChecksumValue        = 0;
     CFE_Status_t Status                  = CFE_SUCCESS;
-    *DoneWithEntry                  = false;
+    *DoneWithEntry                       = false;
 
     /* By the time we get here, we know we have an enabled entry */
 
@@ -118,11 +118,11 @@ CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEn
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
 {
-    uint32  OffsetIntoCurrEntry     = 0;
-    cpuaddr FirstAddrThisCycle      = 0;
-    uint32  NumBytesThisCycle       = 0;
-    int32   NumBytesRemainingCycles = 0;
-    uint32  NewChecksumValue        = 0;
+    uint32       OffsetIntoCurrEntry     = 0;
+    cpuaddr      FirstAddrThisCycle      = 0;
+    uint32       NumBytesThisCycle       = 0;
+    int32        NumBytesRemainingCycles = 0;
+    uint32       NewChecksumValue        = 0;
     CFE_Status_t Status                  = CFE_SUCCESS;
     CFE_Status_t Result                  = CFE_SUCCESS;
     CFE_Status_t ResultShare             = 0;
@@ -306,16 +306,16 @@ CFE_Status_t CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ComputeApp(CS_Res_App_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
 {
-    uint32  OffsetIntoCurrEntry     = 0;
-    cpuaddr FirstAddrThisCycle      = 0;
-    uint32  NumBytesThisCycle       = 0;
-    int32   NumBytesRemainingCycles = 0;
-    uint32  NewChecksumValue        = 0;
+    uint32       OffsetIntoCurrEntry     = 0;
+    cpuaddr      FirstAddrThisCycle      = 0;
+    uint32       NumBytesThisCycle       = 0;
+    int32        NumBytesRemainingCycles = 0;
+    uint32       NewChecksumValue        = 0;
     CFE_Status_t Status                  = CFE_SUCCESS;
     CFE_Status_t Result;
     CFE_Status_t ResultGetResourceID   = CS_ERROR;
     CFE_Status_t ResultGetResourceInfo = CS_ERROR;
-    int32   ResultAddressValid    = false;
+    int32        ResultAddressValid    = false;
 
     /* variables to get applications address */
     CFE_ResourceId_t ResourceID = CFE_RESOURCEID_UNDEFINED;
@@ -573,7 +573,7 @@ void CS_RecomputeAppChildTask(void)
     CS_Res_App_Table_Entry_t *ResultsEntry     = NULL;
     uint16                    PreviousState    = CS_STATE_EMPTY;
     bool                      DoneWithEntry    = false;
-    CFE_Status_t                     Status           = CS_ERROR;
+    CFE_Status_t              Status           = CS_ERROR;
     uint16                    PreviousDefState = CS_STATE_EMPTY;
     bool                      DefEntryFound    = false;
     uint16                    DefEntryID       = 0;

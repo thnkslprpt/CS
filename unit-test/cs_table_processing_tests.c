@@ -64,7 +64,7 @@ CFE_Status_t CS_TABLE_PROCESSING_TEST_CFE_TBL_LoadHook(void *UserObj, int32 Stub
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_Nominal(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -95,7 +95,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_Nominal(void)
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -142,7 +142,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnab
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -189,7 +189,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisa
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalStateField(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -232,7 +232,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalStateField(void)
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_TableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -279,7 +279,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_TableErrorResult(void)
 
 void CS_ValidateEepromChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -326,7 +326,7 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_Nominal(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -357,7 +357,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_Nominal(void)
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -404,7 +404,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnab
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -451,7 +451,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisa
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalStateField(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -494,7 +494,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalStateField(void)
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_TableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -541,7 +541,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_TableErrorResult(void)
 
 void CS_ValidateMemoryChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -588,7 +588,7 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_Nominal(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -621,7 +621,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_Nominal(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -667,7 +667,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -716,7 +716,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEnabled(voi
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -765,7 +765,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateDisabled(vo
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateField(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -810,7 +810,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateField(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -853,7 +853,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_TableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -903,7 +903,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_TableErrorResult(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -951,7 +951,7 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 
 void CS_ValidateTablesChecksumDefinitionTable_Test_CsTableError(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1014,7 +1014,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_Nominal(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1060,7 +1060,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1109,7 +1109,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1158,7 +1158,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateField(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1203,7 +1203,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateField(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1261,7 +1261,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_LongName(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_TableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1310,7 +1310,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_TableErrorResult(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -1358,7 +1358,7 @@ void CS_ValidateAppChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 
 void CS_ValidateAppChecksumDefinitionTable_Test_EmptyNameTableResult(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
     int32 strCmpResult;
     char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
@@ -2264,7 +2264,7 @@ void CS_ProcessNewAppDefinitionTable_Test_StateEmptyNoValidEntries(void)
 
 void CS_TableInit_Test_DefaultDefinitionTableLoadErrorEEPROM(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     int32            strCmpResult;
@@ -2304,7 +2304,7 @@ void CS_TableInit_Test_DefaultDefinitionTableLoadErrorEEPROM(void)
 
 void CS_TableInit_Test_DefinitionTableGetAddressErrorEEPROM(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     int32            strCmpResult;
@@ -2347,7 +2347,7 @@ void CS_TableInit_Test_DefinitionTableGetAddressErrorEEPROM(void)
 
 void CS_TableInit_Test_DefinitionTableGetAddressErrorMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     int32            strCmpResult;
@@ -2390,7 +2390,7 @@ void CS_TableInit_Test_DefinitionTableGetAddressErrorMemory(void)
 
 void CS_TableInit_Test_DefinitionTableGetAddressErrorTables(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     int32            strCmpResult;
@@ -2433,7 +2433,7 @@ void CS_TableInit_Test_DefinitionTableGetAddressErrorTables(void)
 
 void CS_TableInit_Test_DefinitionTableGetAddressErrorApps(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     int32            strCmpResult;
@@ -2475,7 +2475,7 @@ void CS_TableInit_Test_DefinitionTableGetAddressErrorApps(void)
 
 void CS_TableInit_Test_EepromTableAndNotLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2507,7 +2507,7 @@ void CS_TableInit_Test_EepromTableAndNotLoadedFromMemory(void)
 
 void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterResultsTableRegisterError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2544,7 +2544,7 @@ void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterResultsTableRegisterEr
 
 void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterResultsTableGetAddressError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2578,7 +2578,7 @@ void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterResultsTableGetAddress
 
 void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterDefinitionTableRegisterError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2615,7 +2615,7 @@ void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterDefinitionTableRegiste
 
 void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterDefinitionTableFileLoadError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2650,7 +2650,7 @@ void CS_TableInit_Test_EepromTableAndLoadedFromMemoryAfterDefinitionTableFileLoa
 
 void CS_TableInit_Test_MemoryTableAndNotLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2682,7 +2682,7 @@ void CS_TableInit_Test_MemoryTableAndNotLoadedFromMemory(void)
 
 void CS_TableInit_Test_MemoryTableAndLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2719,7 +2719,7 @@ void CS_TableInit_Test_MemoryTableAndLoadedFromMemory(void)
 
 void CS_TableInit_Test_AppTableAndNotLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2750,7 +2750,7 @@ void CS_TableInit_Test_AppTableAndNotLoadedFromMemory(void)
 
 void CS_TableInit_Test_AppTableAndLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2786,7 +2786,7 @@ void CS_TableInit_Test_AppTableAndLoadedFromMemory(void)
 
 void CS_TableInit_Test_TablesTableAndNotLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2818,7 +2818,7 @@ void CS_TableInit_Test_TablesTableAndNotLoadedFromMemory(void)
 
 void CS_TableInit_Test_TablesTableAndLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2855,7 +2855,7 @@ void CS_TableInit_Test_TablesTableAndLoadedFromMemory(void)
 
 void CS_TableInit_Test_DefaultAndLoadedFromMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2892,7 +2892,7 @@ void CS_TableInit_Test_DefaultAndLoadedFromMemory(void)
 
 void CS_TableInit_Test_OpenCreateError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
 
@@ -2931,7 +2931,7 @@ void CS_TableInit_Test_OpenCreateError(void)
 
 void CS_HandleTableUpdate_Test_ProcessNewTablesDefinitionTable(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_TABLES_TABLE;
@@ -2962,7 +2962,7 @@ void CS_HandleTableUpdate_Test_ProcessNewTablesDefinitionTable(void)
 
 void CS_HandleTableUpdate_Test_ProcessNewAppDefinitionTable(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_APP_TABLE;
@@ -2991,7 +2991,7 @@ void CS_HandleTableUpdate_Test_ProcessNewAppDefinitionTable(void)
 
 void CS_HandleTableUpdate_Test_ProcessNewEepromMemoryDefinitionTable(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_EEPROM_TABLE;
@@ -3020,7 +3020,7 @@ void CS_HandleTableUpdate_Test_ProcessNewEepromMemoryDefinitionTable(void)
 
 void CS_HandleTableUpdate_Test_ResultsTableGetAddressErrorEEPROM(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_EEPROM_TABLE;
@@ -3063,7 +3063,7 @@ void CS_HandleTableUpdate_Test_ResultsTableGetAddressErrorEEPROM(void)
 
 void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorEEPROM(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_EEPROM_TABLE;
@@ -3107,7 +3107,7 @@ void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorEEPROM(void)
 
 void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorMemory(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_MEMORY_TABLE;
@@ -3151,7 +3151,7 @@ void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorMemory(void)
 
 void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorTables(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_TABLES_TABLE;
@@ -3195,7 +3195,7 @@ void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorTables(void)
 
 void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorApps(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_APP_TABLE;
@@ -3239,7 +3239,7 @@ void CS_HandleTableUpdate_Test_DefinitionTableGetAddressErrorApps(void)
 
 void CS_HandleTableUpdate_Test_BadTableHandle(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_TABLES_TABLE;
@@ -3270,7 +3270,7 @@ void CS_HandleTableUpdate_Test_BadTableHandle(void)
 
 void CS_HandleTableUpdate_Test_CsOwner(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_TABLES_TABLE;
@@ -3301,7 +3301,7 @@ void CS_HandleTableUpdate_Test_CsOwner(void)
 
 void CS_HandleTableUpdate_Test_GetAddressError(void)
 {
-    int32            Result;
+    CFE_Status_t     Result;
     CFE_TBL_Handle_t DefinitionTableHandle = 0;
     CFE_TBL_Handle_t ResultsTableHandle    = 0;
     uint16           Table                 = CS_TABLES_TABLE;

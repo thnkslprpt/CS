@@ -576,9 +576,9 @@ void CS_HousekeepingCmd(const CS_NoArgsCmd_t *CmdPtr)
 CFE_Status_t CS_CreateRestoreStatesFromCDS(void)
 {
     /* Store task ena/dis state of tables in CDS */
-    uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
+    uint8        DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
     CFE_Status_t Result;
-    int32 EventId = 0;
+    int32        EventId = 0;
 
     memset(DataStoreBuffer, 0, sizeof(DataStoreBuffer));
 
@@ -670,7 +670,7 @@ CFE_Status_t CS_CreateRestoreStatesFromCDS(void)
 void CS_UpdateCDS(void)
 {
     /* Store table ena/dis state in CDS */
-    uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
+    uint8        DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
     CFE_Status_t Result;
 
     /*

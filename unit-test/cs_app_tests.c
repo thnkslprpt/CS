@@ -492,9 +492,9 @@ void CS_AppMain_Test_AppPipeError(void)
 
 void CS_AppInit_Test_Nominal(void)
 {
-    int32 Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH, "CS Initialized. Version %%d.%%d.%%d.%%d");
 
@@ -526,9 +526,9 @@ void CS_AppInit_Test_Nominal(void)
 
 void CS_AppInit_Test_NominalPowerOnReset(void)
 {
-    int32 Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH, "CS Initialized. Version %%d.%%d.%%d.%%d");
 
@@ -604,7 +604,7 @@ void CS_AppInit_Test_NominalProcReset(void)
 
 void CS_CreateRestoreStatesFromCDS_Test_NoExistingCDS(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
 
     CS_AppData.HkPacket.EepromCSState  = 99;
     CS_AppData.HkPacket.MemoryCSState  = 99;
@@ -636,7 +636,7 @@ void CS_CreateRestoreStatesFromCDS_Test_NoExistingCDS(void)
 
 void CS_CreateRestoreStatesFromCDS_Test_CDSSuccess(void)
 {
-    int32 Result;
+    CFE_Status_t Result;
 
     CS_AppData.HkPacket.EepromCSState  = 99;
     CS_AppData.HkPacket.MemoryCSState  = 99;
@@ -678,10 +678,10 @@ void CS_CreateRestoreStatesFromCDS_Test_CDSSuccess(void)
 
 void CS_CreateRestoreStatesFromCDS_Test_CDSFail(void)
 {
-    int32 Result;
-    uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    uint8        DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH, "Critical Data Store access error = 0x%%08X");
 
@@ -733,10 +733,10 @@ void CS_CreateRestoreStatesFromCDS_Test_CDSFail(void)
 
 void CS_CreateRestoreStatesFromCDS_Test_CopyToCDSFail(void)
 {
-    int32 Result;
-    uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    uint8        DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH, "Critical Data Store access error = 0x%%08X");
 
@@ -790,10 +790,10 @@ void CS_CreateRestoreStatesFromCDS_Test_CopyToCDSFail(void)
 
 void CS_CreateRestoreStatesFromCDS_Test_RegisterCDSFail(void)
 {
-    int32 Result;
-    uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    uint8        DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH, "Critical Data Store access error = 0x%%08X");
 
@@ -849,9 +849,9 @@ void CS_CreateRestoreStatesFromCDS_Test_RegisterCDSFail(void)
 
 void CS_AppInit_Test_EVSRegisterError(void)
 {
-    int32 Result;
-    int32 strCmpResult;
-    char  ExpectedSysLogString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    CFE_Status_t Result;
+    int32        strCmpResult;
+    char         ExpectedSysLogString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedSysLogString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS App: Error Registering For Event Services, RC = 0x%%08X\n");
@@ -877,7 +877,7 @@ void CS_AppInit_Test_EVSRegisterError(void)
 
 void CS_AppPipe_Test_TableUpdateErrors(void)
 {
-    int32          Result;
+    CFE_Status_t   Result;
     UT_CmdBuf_t    CmdBuf;
     CFE_SB_MsgId_t TestMsgId;
     size_t         MsgSize;
@@ -906,7 +906,7 @@ void CS_AppPipe_Test_TableUpdateErrors(void)
 
 void CS_AppPipe_Test_BackgroundCycle(void)
 {
-    int32          Result;
+    CFE_Status_t   Result;
     UT_CmdBuf_t    CmdBuf;
     CFE_SB_MsgId_t TestMsgId;
     size_t         MsgSize;
@@ -934,7 +934,7 @@ void CS_AppPipe_Test_BackgroundCycle(void)
 
 void CS_AppPipe_Test_NoopCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -963,7 +963,7 @@ void CS_AppPipe_Test_NoopCmd(void)
 
 void CS_AppPipe_Test_ResetCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -992,7 +992,7 @@ void CS_AppPipe_Test_ResetCmd(void)
 
 void CS_AppPipe_Test_OneShotCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1021,7 +1021,7 @@ void CS_AppPipe_Test_OneShotCmd(void)
 
 void CS_AppPipe_Test_CancelOneShotCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1050,7 +1050,7 @@ void CS_AppPipe_Test_CancelOneShotCmd(void)
 
 void CS_AppPipe_Test_EnableAllCSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1079,7 +1079,7 @@ void CS_AppPipe_Test_EnableAllCSCmd(void)
 
 void CS_AppPipe_Test_DisableAllCSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1108,7 +1108,7 @@ void CS_AppPipe_Test_DisableAllCSCmd(void)
 
 void CS_AppPipe_Test_EnableCfeCoreCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1137,7 +1137,7 @@ void CS_AppPipe_Test_EnableCfeCoreCmd(void)
 
 void CS_AppPipe_Test_DisableCfeCoreCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1166,7 +1166,7 @@ void CS_AppPipe_Test_DisableCfeCoreCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineCfeCoreCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1195,7 +1195,7 @@ void CS_AppPipe_Test_ReportBaselineCfeCoreCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineCfeCoreCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1224,7 +1224,7 @@ void CS_AppPipe_Test_RecomputeBaselineCfeCoreCmd(void)
 
 void CS_AppPipe_Test_EnableOSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1253,7 +1253,7 @@ void CS_AppPipe_Test_EnableOSCmd(void)
 
 void CS_AppPipe_Test_DisableOSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1282,7 +1282,7 @@ void CS_AppPipe_Test_DisableOSCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineOSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1311,7 +1311,7 @@ void CS_AppPipe_Test_ReportBaselineOSCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineOSCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1340,7 +1340,7 @@ void CS_AppPipe_Test_RecomputeBaselineOSCmd(void)
 
 void CS_AppPipe_Test_EnableEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1369,7 +1369,7 @@ void CS_AppPipe_Test_EnableEepromCmd(void)
 
 void CS_AppPipe_Test_DisableEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1398,7 +1398,7 @@ void CS_AppPipe_Test_DisableEepromCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineEntryIDEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1427,7 +1427,7 @@ void CS_AppPipe_Test_ReportBaselineEntryIDEepromCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1456,7 +1456,7 @@ void CS_AppPipe_Test_RecomputeBaselineEepromCmd(void)
 
 void CS_AppPipe_Test_EnableEntryIDEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1485,7 +1485,7 @@ void CS_AppPipe_Test_EnableEntryIDEepromCmd(void)
 
 void CS_AppPipe_Test_DisableEntryIDEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1514,7 +1514,7 @@ void CS_AppPipe_Test_DisableEntryIDEepromCmd(void)
 
 void CS_AppPipe_Test_GetEntryIDEepromCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1543,7 +1543,7 @@ void CS_AppPipe_Test_GetEntryIDEepromCmd(void)
 
 void CS_AppPipe_Test_EnableMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1572,7 +1572,7 @@ void CS_AppPipe_Test_EnableMemoryCmd(void)
 
 void CS_AppPipe_Test_DisableMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1601,7 +1601,7 @@ void CS_AppPipe_Test_DisableMemoryCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineEntryIDMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1630,7 +1630,7 @@ void CS_AppPipe_Test_ReportBaselineEntryIDMemoryCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1659,7 +1659,7 @@ void CS_AppPipe_Test_RecomputeBaselineMemoryCmd(void)
 
 void CS_AppPipe_Test_EnableEntryIDMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1688,7 +1688,7 @@ void CS_AppPipe_Test_EnableEntryIDMemoryCmd(void)
 
 void CS_AppPipe_Test_DisableEntryIDMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1717,7 +1717,7 @@ void CS_AppPipe_Test_DisableEntryIDMemoryCmd(void)
 
 void CS_AppPipe_Test_GetEntryIDMemoryCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1746,7 +1746,7 @@ void CS_AppPipe_Test_GetEntryIDMemoryCmd(void)
 
 void CS_AppPipe_Test_EnableTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1775,7 +1775,7 @@ void CS_AppPipe_Test_EnableTablesCmd(void)
 
 void CS_AppPipe_Test_DisableTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1804,7 +1804,7 @@ void CS_AppPipe_Test_DisableTablesCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1833,7 +1833,7 @@ void CS_AppPipe_Test_ReportBaselineTablesCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1862,7 +1862,7 @@ void CS_AppPipe_Test_RecomputeBaselineTablesCmd(void)
 
 void CS_AppPipe_Test_EnableNameTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1891,7 +1891,7 @@ void CS_AppPipe_Test_EnableNameTablesCmd(void)
 
 void CS_AppPipe_Test_DisableNameTablesCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1920,7 +1920,7 @@ void CS_AppPipe_Test_DisableNameTablesCmd(void)
 
 void CS_AppPipe_Test_EnableAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1949,7 +1949,7 @@ void CS_AppPipe_Test_EnableAppCmd(void)
 
 void CS_AppPipe_Test_DisableAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -1978,7 +1978,7 @@ void CS_AppPipe_Test_DisableAppCmd(void)
 
 void CS_AppPipe_Test_ReportBaselineAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -2007,7 +2007,7 @@ void CS_AppPipe_Test_ReportBaselineAppCmd(void)
 
 void CS_AppPipe_Test_RecomputeBaselineAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -2036,7 +2036,7 @@ void CS_AppPipe_Test_RecomputeBaselineAppCmd(void)
 
 void CS_AppPipe_Test_EnableNameAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -2065,7 +2065,7 @@ void CS_AppPipe_Test_EnableNameAppCmd(void)
 
 void CS_AppPipe_Test_DisableNameAppCmd(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -2094,7 +2094,7 @@ void CS_AppPipe_Test_DisableNameAppCmd(void)
 
 void CS_AppPipe_Test_InvalidCCError(void)
 {
-    int32             Result;
+    CFE_Status_t      Result;
     UT_CmdBuf_t       CmdBuf;
     CFE_SB_MsgId_t    TestMsgId;
     CFE_MSG_FcnCode_t FcnCode;
@@ -2135,7 +2135,7 @@ void CS_AppPipe_Test_InvalidCCError(void)
 
 void CS_AppPipe_Test_InvalidMIDError(void)
 {
-    int32          Result;
+    CFE_Status_t   Result;
     UT_CmdBuf_t    CmdBuf;
     CFE_SB_MsgId_t TestMsgId;
     int32          strCmpResult;
