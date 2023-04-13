@@ -480,7 +480,7 @@ bool CS_BackgroundCfeCore(void)
     bool                               DoneWithCycle   = false;
     bool                               DoneWithEntry   = false;
     uint32                             ComputedCSValue = 0;
-    int32                              Status;
+    CFE_Status_t                       Status;
 
     if (CS_AppData.HkPacket.CfeCoreCSState == CS_STATE_ENABLED)
     {
@@ -547,7 +547,7 @@ bool CS_BackgroundOS(void)
     bool                               DoneWithCycle   = false;
     bool                               DoneWithEntry   = false;
     uint32                             ComputedCSValue = 0;
-    int32                              Status;
+    CFE_Status_t                       Status;
 
     if (CS_AppData.HkPacket.OSCSState == CS_STATE_ENABLED)
     {
@@ -616,7 +616,7 @@ bool CS_BackgroundEeprom(void)
     int32                              Loop;
     uint32                             EntireEepromCS;
     uint16                             CurrEntry;
-    int32                              Status;
+    CFE_Status_t                       Status;
 
     if (CS_AppData.HkPacket.EepromCSState == CS_STATE_ENABLED)
     {
@@ -689,7 +689,7 @@ bool CS_BackgroundMemory(void)
     bool                               DoneWithEntry   = false;
     uint32                             ComputedCSValue = 0;
     uint16                             CurrEntry;
-    int32                              Status;
+    CFE_Status_t                       Status;
 
     if (CS_AppData.HkPacket.MemoryCSState == CS_STATE_ENABLED)
     {
@@ -758,7 +758,7 @@ bool CS_BackgroundTables(void)
     bool                         DoneWithEntry   = false;
     uint32                       ComputedCSValue = 0;
     uint16                       CurrEntry;
-    int32                        Status;
+    CFE_Status_t                 Status;
 
     if (CS_AppData.HkPacket.TablesCSState == CS_STATE_ENABLED)
     {
@@ -835,7 +835,7 @@ bool CS_BackgroundApp(void)
     bool                      DoneWithEntry   = false;
     uint32                    ComputedCSValue = 0;
     uint16                    CurrEntry;
-    int32                     Status;
+    CFE_Status_t              Status;
 
     if (CS_AppData.HkPacket.AppCSState == CS_STATE_ENABLED)
     {
@@ -919,8 +919,8 @@ void CS_ResetTablesTblResultEntry(CS_Res_Tables_Table_Entry_t *TablesTblResultEn
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_HandleRoutineTableUpdates(void)
 {
-    int32 Result    = CFE_SUCCESS;
-    int32 ErrorCode = CFE_SUCCESS;
+    CFE_Status_t Result    = CFE_SUCCESS;
+    CFE_Status_t ErrorCode = CFE_SUCCESS;
 
     if (!((CS_AppData.HkPacket.RecomputeInProgress == true) && (CS_AppData.HkPacket.OneShotInProgress == false) &&
           (CS_AppData.ChildTaskTable == CS_EEPROM_TABLE)))
@@ -1004,9 +1004,9 @@ CFE_Status_t CS_HandleRoutineTableUpdates(void)
 CFE_Status_t CS_AttemptTableReshare(CS_Res_Tables_Table_Entry_t *ResultsEntry, CFE_TBL_Handle_t *LocalTblHandle,
                                     CFE_TBL_Info_t *TblInfo, cpuaddr *LocalAddress, int32 *ResultGetInfo)
 {
-    int32 Result           = CS_SUCCESS;
-    int32 ResultShare      = 0;
-    int32 ResultGetAddress = 0;
+    CFE_Status_t Result           = CFE_SUCCESS;
+    CFE_Status_t ResultShare      = 0;
+    CFE_Status_t ResultGetAddress = 0;
 
     /* Maybe the table came back, try and reshare it */
     ResultShare = CFE_TBL_Share(LocalTblHandle, ResultsEntry->Name);
@@ -1028,7 +1028,6 @@ CFE_Status_t CS_AttemptTableReshare(CS_Res_Tables_Table_Entry_t *ResultsEntry, C
             CFE_TBL_ReleaseAddress(*LocalTblHandle);
         }
     }
-
     else /* table was not there on the new share */
     {
         Result = ResultShare;

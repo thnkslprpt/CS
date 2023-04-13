@@ -57,7 +57,7 @@
  *                                     completed during this call.
  *
  * \return Execution status
- * \retval #CS_SUCCESS \copybrief CS_SUCCESS
+ * \retval #CFE_SUCCESS \copybrief CFE_SUCCESS
  * \retval #CS_ERROR   \copybrief CS_ERROR
  */
 CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue,
@@ -86,7 +86,7 @@ CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEn
  *                                     completed during this call.
  *
  * \return Execution status
- * \retval #CS_SUCCESS       \copybrief CS_SUCCESS
+ * \retval #CFE_SUCCESS       \copybrief CFE_SUCCESS
  * \retval #CS_ERROR         \copybrief CS_ERROR
  * \retval #CS_ERR_NOT_FOUND \copydoc CS_ERR_NOT_FOUND
  */
@@ -115,7 +115,7 @@ CFE_Status_t CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 
  *                                     completed during this call.
  *
  * \return Execution status
- * \retval #CS_SUCCESS       \copybrief CS_SUCCESS
+ * \retval #CFE_SUCCESS       \copybrief CFE_SUCCESS
  * \retval #CS_ERROR         \copybrief CS_ERROR
  * \retval #CS_ERR_NOT_FOUND \copydoc CS_ERR_NOT_FOUND
  */

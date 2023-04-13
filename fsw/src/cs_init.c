@@ -39,7 +39,7 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_SbInit(void)
 {
-    int32 Result = CFE_SUCCESS;
+    CFE_Status_t Result = CFE_SUCCESS;
 
     /* Initialize app configuration data */
     strncpy(CS_AppData.PipeName, CS_CMD_PIPE_NAME, CS_CMD_PIPE_NAME_LEN);
@@ -100,7 +100,7 @@ CFE_Status_t CS_SbInit(void)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_InitAllTables(void)
 {
-    int32 ResultInit = CFE_SUCCESS;
+    CFE_Status_t ResultInit = CFE_SUCCESS;
 
     ResultInit = CS_TableInit(&CS_AppData.DefEepromTableHandle, &CS_AppData.ResEepromTableHandle,
                               (void *)&CS_AppData.DefEepromTblPtr, (void *)&CS_AppData.ResEepromTblPtr, CS_EEPROM_TABLE,

@@ -47,8 +47,8 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ValidateEepromChecksumDefinitionTable(void *TblPtr)
 {
-    int32                              Result       = CFE_SUCCESS;
-    int32                              Status       = OS_ERROR;
+    CFE_Status_t                       Result       = CFE_SUCCESS;
+    CFE_Status_t                       Status       = OS_ERROR;
     CS_Def_EepromMemory_Table_Entry_t *StartOfTable = NULL;
     CS_Def_EepromMemory_Table_Entry_t *OuterEntry   = NULL;
     int32                              OuterLoop    = 0;
@@ -127,8 +127,8 @@ CFE_Status_t CS_ValidateEepromChecksumDefinitionTable(void *TblPtr)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ValidateMemoryChecksumDefinitionTable(void *TblPtr)
 {
-    int32                              Result       = CFE_SUCCESS;
-    int32                              Status       = OS_ERROR;
+    CFE_Status_t                       Result       = CFE_SUCCESS;
+    CFE_Status_t                       Status       = OS_ERROR;
     CS_Def_EepromMemory_Table_Entry_t *StartOfTable = NULL;
     CS_Def_EepromMemory_Table_Entry_t *OuterEntry   = NULL;
     int32                              OuterLoop    = 0;
@@ -211,7 +211,7 @@ CFE_Status_t CS_ValidateMemoryChecksumDefinitionTable(void *TblPtr)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ValidateTablesChecksumDefinitionTable(void *TblPtr)
 {
-    int32                        Result         = CFE_SUCCESS;
+    CFE_Status_t                 Result         = CFE_SUCCESS;
     CS_Def_Tables_Table_Entry_t *StartOfTable   = NULL;
     CS_Def_Tables_Table_Entry_t *OuterEntry     = NULL;
     int32                        OuterLoop      = 0;
@@ -327,7 +327,7 @@ CFE_Status_t CS_ValidateTablesChecksumDefinitionTable(void *TblPtr)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_ValidateAppChecksumDefinitionTable(void *TblPtr)
 {
-    int32                     Result = CFE_SUCCESS;
+    CFE_Status_t              Result = CFE_SUCCESS;
     CS_Def_App_Table_Entry_t *StartOfTable;
     CS_Def_App_Table_Entry_t *OuterEntry;
     int32                     OuterLoop;
@@ -816,14 +816,14 @@ CFE_Status_t CS_TableInit(CFE_TBL_Handle_t *DefinitionTableHandle, CFE_TBL_Handl
                           const void *DefaultDefTableAddress, uint16 SizeofDefinitionTableEntry,
                           uint16 SizeofResultsTableEntry, CFE_TBL_CallbackFuncPtr_t CallBackFunction)
 {
-    int32     Result           = CFE_SUCCESS;
-    int32     OS_Status        = -1;
-    int32     ResultFromLoad   = OS_ERROR;
-    int32     SizeOfTable      = 0;
-    bool      LoadedFromMemory = false;
-    bool      ValidFile        = false;
-    osal_id_t Fd               = OS_OBJECT_ID_UNDEFINED;
-    char      TableType[CS_TABLETYPE_NAME_SIZE];
+    CFE_Status_t Result           = CFE_SUCCESS;
+    int32        OS_Status        = -1;
+    CFE_Status_t ResultFromLoad   = OS_ERROR;
+    int32        SizeOfTable      = 0;
+    bool         LoadedFromMemory = false;
+    bool         ValidFile        = false;
+    osal_id_t    Fd               = OS_OBJECT_ID_UNDEFINED;
+    char         TableType[CS_TABLETYPE_NAME_SIZE];
 
     strncpy(TableType, "Undef Tbl", CS_TABLETYPE_NAME_SIZE); /* Init table type */
 
@@ -957,15 +957,15 @@ CFE_Status_t CS_TableInit(CFE_TBL_Handle_t *DefinitionTableHandle, CFE_TBL_Handl
 CFE_Status_t CS_HandleTableUpdate(void *DefinitionTblPtr, void *ResultsTblPtr, CFE_TBL_Handle_t DefinitionTableHandle,
                                   CFE_TBL_Handle_t ResultsTableHandle, uint16 Table, uint16 NumEntries)
 {
-    int32 ReleaseResult1 = CFE_SUCCESS;
-    int32 ManageResult1  = CFE_SUCCESS;
-    int32 GetResult1     = CFE_SUCCESS;
-    int32 ReleaseResult2 = CFE_SUCCESS;
-    int32 ManageResult2  = CFE_SUCCESS;
-    int32 GetResult2     = CFE_SUCCESS;
-    int32 Result         = CFE_SUCCESS;
-    int32 Loop           = 0;
-    char  TableType[CS_TABLETYPE_NAME_SIZE];
+    CFE_Status_t ReleaseResult1 = CFE_SUCCESS;
+    CFE_Status_t ManageResult1  = CFE_SUCCESS;
+    CFE_Status_t GetResult1     = CFE_SUCCESS;
+    CFE_Status_t ReleaseResult2 = CFE_SUCCESS;
+    CFE_Status_t ManageResult2  = CFE_SUCCESS;
+    CFE_Status_t GetResult2     = CFE_SUCCESS;
+    CFE_Status_t Result         = CFE_SUCCESS;
+    int32        Loop           = 0;
+    char         TableType[CS_TABLETYPE_NAME_SIZE];
 
     strncpy(TableType, "Undef Tbl", CS_TABLETYPE_NAME_SIZE); /* Init table type */
 

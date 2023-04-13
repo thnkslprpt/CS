@@ -52,7 +52,6 @@
  * \name CS Error Codes
  * \{
  */
-#define CS_SUCCESS       0    /**< \brief Success return code when a checksum compare did not fail */
 #define CS_ERROR         (-1) /**< \brief Error code returned when a checksum compare failed */
 #define CS_ERR_NOT_FOUND (-2) /**< \brief Error code returned the app or table requested could not be found */
 #define CS_TABLE_ERROR   (-3) /**< \brief Error code returned on table validation error */

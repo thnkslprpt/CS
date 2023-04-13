@@ -29,7 +29,7 @@
 #include "utstubs.h"
 
 CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue,
-                             bool *DoneWithEntry)
+                                    bool *DoneWithEntry)
 {
     UT_Stub_RegisterContext(UT_KEY(CS_ComputeEepromMemory), ResultsEntry);
     UT_Stub_RegisterContext(UT_KEY(CS_ComputeEepromMemory), ComputedCSValue);

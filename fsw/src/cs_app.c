@@ -138,7 +138,7 @@ CFE_Status_t CS_CreateRestoreStatesFromCDS(void);
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 void CS_AppMain(void)
 {
-    int32            Result = 0;
+    CFE_Status_t     Result = 0;
     CFE_SB_Buffer_t *BufPtr = NULL;
 
     /* Performance Log (start time counter) */
@@ -227,7 +227,7 @@ void CS_AppMain(void)
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 CFE_Status_t CS_AppInit(void)
 {
-    int32 Result = CFE_SUCCESS;
+    CFE_Status_t Result = CFE_SUCCESS;
 
     /* Register for event services */
     Result = CFE_EVS_Register(NULL, 0, 0);
@@ -303,7 +303,7 @@ CFE_Status_t CS_AppInit(void)
 CFE_Status_t CS_AppPipe(const CFE_SB_Buffer_t *BufPtr)
 {
     CFE_SB_MsgId_t MessageID = CFE_SB_INVALID_MSG_ID;
-    int32          Result    = CFE_SUCCESS;
+    CFE_Status_t   Result    = CFE_SUCCESS;
 
     CFE_MSG_GetMsgId(&BufPtr->Msg, &MessageID);
 
@@ -577,7 +577,7 @@ CFE_Status_t CS_CreateRestoreStatesFromCDS(void)
 {
     /* Store task ena/dis state of tables in CDS */
     uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
-    int32 Result;
+    CFE_Status_t Result;
     int32 EventId = 0;
 
     memset(DataStoreBuffer, 0, sizeof(DataStoreBuffer));
@@ -671,7 +671,7 @@ void CS_UpdateCDS(void)
 {
     /* Store table ena/dis state in CDS */
     uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];
-    int32 Result;
+    CFE_Status_t Result;
 
     /*
     ** Handle is defined when CDS is active...

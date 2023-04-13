@@ -51,7 +51,7 @@ void CS_TABLE_PROCESSING_TEST_CFE_ES_GetAppNameHandler1(void *UserObj, UT_EntryK
 }
 
 CFE_Status_t CS_TABLE_PROCESSING_TEST_CFE_TBL_GetAddressHook(void *UserObj, int32 StubRetcode, uint32 CallCount,
-                                                      const UT_StubContext_t *Context)
+                                                             const UT_StubContext_t *Context)
 {
     return CFE_SUCCESS;
 }
