@@ -65,8 +65,8 @@ CFE_Status_t CS_TABLE_PROCESSING_TEST_CFE_TBL_LoadHook(void *UserObj, int32 Stub
 void CS_ValidateEepromChecksumDefinitionTable_Test_Nominal(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Eeprom Table verification results: good = %%d, bad = %%d, unused = %%d");
@@ -96,8 +96,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_Nominal(void)
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Eeprom Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -143,8 +143,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnab
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Eeprom Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -190,8 +190,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisa
 void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalStateField(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Eeprom Table Validate: Illegal State Field (0x%%04X) found in Entry ID %%d");
@@ -233,8 +233,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_IllegalStateField(void)
 void CS_ValidateEepromChecksumDefinitionTable_Test_TableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Eeprom Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -280,8 +280,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_TableErrorResult(void)
 void CS_ValidateEepromChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Eeprom Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -327,8 +327,8 @@ void CS_ValidateEepromChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 void CS_ValidateMemoryChecksumDefinitionTable_Test_Nominal(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Memory Table verification results: good = %%d, bad = %%d, unused = %%d");
@@ -358,8 +358,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_Nominal(void)
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Memory Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -405,8 +405,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateEnab
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Memory Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -452,8 +452,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalChecksumRangeStateDisa
 void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalStateField(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Memory Table Validate: Illegal State Field (0x%%04X) found in Entry ID %%d");
@@ -495,8 +495,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_IllegalStateField(void)
 void CS_ValidateMemoryChecksumDefinitionTable_Test_TableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Memory Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -542,8 +542,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_TableErrorResult(void)
 void CS_ValidateMemoryChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "Memory Table Validate: Illegal checksum range found in Entry ID %%d, CFE_PSP_MemValidateRange returned: "
@@ -589,8 +589,8 @@ void CS_ValidateMemoryChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_Nominal(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString, CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table verification results: good = %%d, bad = %%d, unused = %%d");
@@ -622,8 +622,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_Nominal(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -668,8 +668,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -717,8 +717,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateEnabled(voi
 void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -766,8 +766,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_DuplicateNameStateDisabled(vo
 void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateField(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Illegal State Field (0x%%04X) found with name %%s");
@@ -811,8 +811,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateField(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Illegal State (0x%%04X) with empty name at entry %%d");
@@ -854,8 +854,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_TableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -904,8 +904,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_TableErrorResult(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -952,8 +952,8 @@ void CS_ValidateTablesChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 void CS_ValidateTablesChecksumDefinitionTable_Test_CsTableError(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Tables Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1015,8 +1015,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_Nominal(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1061,8 +1061,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEmpty(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1110,8 +1110,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateEnabled(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1159,8 +1159,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_DuplicateNameStateDisabled(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateField(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Illegal State Field (0x%%04X) found with name %%s");
@@ -1204,8 +1204,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateField(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_IllegalStateEmptyName(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Illegal State (0x%%04X) with empty name at entry %%d");
@@ -1262,8 +1262,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_LongName(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_TableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1311,8 +1311,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_TableErrorResult(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Duplicate Name (%%s) found at entries %%d and %%d");
@@ -1359,8 +1359,8 @@ void CS_ValidateAppChecksumDefinitionTable_Test_UndefTableErrorResult(void)
 void CS_ValidateAppChecksumDefinitionTable_Test_EmptyNameTableResult(void)
 {
     CFE_Status_t Result;
-    int32 strCmpResult;
-    char  ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
+    int32        strCmpResult;
+    char         ExpectedEventString[2][CFE_MISSION_EVS_MAX_MESSAGE_LENGTH];
 
     snprintf(ExpectedEventString[0], CFE_MISSION_EVS_MAX_MESSAGE_LENGTH,
              "CS Apps Table Validate: Illegal State (0x%%04X) with empty name at entry %%d");
