@@ -67,7 +67,7 @@ CS_AppData_t CS_AppData;
  * \return Execution status, see \ref CFEReturnCodes
  * \retval #CFE_SUCCESS \copybrief CFE_SUCCESS
  */
-int32 CS_AppInit(void);
+CFE_Status_t CS_AppInit(void);
 
 /**
  * \brief Process a command pipe message
@@ -88,7 +88,7 @@ int32 CS_AppInit(void);
  * \return Execution status, see \ref CFEReturnCodes
  * \retval #CFE_SUCCESS \copybrief CFE_SUCCESS
  */
-int32 CS_AppPipe(const CFE_SB_Buffer_t *BufPtr);
+CFE_Status_t CS_AppPipe(const CFE_SB_Buffer_t *BufPtr);
 
 /**
  * \brief Process housekeeping request
@@ -128,7 +128,7 @@ void CS_ProcessCmd(const CFE_SB_Buffer_t *BufPtr);
  * \return Execution status, see \ref CFEReturnCodes
  * \retval #CFE_SUCCESS \copybrief CFE_SUCCESS
  */
-int32 CS_CreateRestoreStatesFromCDS(void);
+CFE_Status_t CS_CreateRestoreStatesFromCDS(void);
 #endif
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -225,7 +225,7 @@ void CS_AppMain(void)
 /* CS Application initialization function                          */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_AppInit(void)
+CFE_Status_t CS_AppInit(void)
 {
     int32 Result = CFE_SUCCESS;
 
@@ -300,7 +300,7 @@ int32 CS_AppInit(void)
 /* CS's command pipe processing                                    */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_AppPipe(const CFE_SB_Buffer_t *BufPtr)
+CFE_Status_t CS_AppPipe(const CFE_SB_Buffer_t *BufPtr)
 {
     CFE_SB_MsgId_t MessageID = CFE_SB_INVALID_MSG_ID;
     int32          Result    = CFE_SUCCESS;
@@ -573,7 +573,7 @@ void CS_HousekeepingCmd(const CS_NoArgsCmd_t *CmdPtr)
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-int32 CS_CreateRestoreStatesFromCDS(void)
+CFE_Status_t CS_CreateRestoreStatesFromCDS(void)
 {
     /* Store task ena/dis state of tables in CDS */
     uint8 DataStoreBuffer[CS_NUM_DATA_STORE_STATES];

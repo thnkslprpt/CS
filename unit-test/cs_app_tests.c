@@ -61,8 +61,8 @@ uint8 call_count_CFE_EVS_SendEvent;
  * Function Definitions
  */
 
-int32 CS_APP_TEST_CFE_ES_RunLoop_Hook(void *UserObj, int32 StubRetcode, uint32 CallCount,
-                                      const UT_StubContext_t *Context)
+CFE_Status_t CS_APP_TEST_CFE_ES_RunLoop_Hook(void *UserObj, int32 StubRetcode, uint32 CallCount,
+                                             const UT_StubContext_t *Context)
 {
     CS_AppData.RunStatus = CFE_ES_RunStatus_SYS_EXCEPTION;
 
@@ -82,13 +82,13 @@ void CS_APP_TEST_CFE_ES_RestoreFromCDS_Handler(void *UserObj, UT_EntryKey_t Func
     DataStoreBuffer[5] = CS_STATE_ENABLED;
 }
 
-int32 CS_AppInit(void);
+CFE_Status_t CS_AppInit(void);
 
-int32 CS_AppPipe(CFE_SB_Buffer_t *BufPtr);
+CFE_Status_t CS_AppPipe(CFE_SB_Buffer_t *BufPtr);
 
 void CS_HousekeepingCmd(const CS_NoArgsCmd_t *CmdPtr);
 
-int32 CS_CreateRestoreStatesFromCDS(void);
+CFE_Status_t CS_CreateRestoreStatesFromCDS(void);
 
 void CS_App_TestCmdTlmAlign(void)
 {

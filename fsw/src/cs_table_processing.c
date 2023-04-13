@@ -45,7 +45,7 @@
 /* CS Validation Callback function for Eeprom Table                */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ValidateEepromChecksumDefinitionTable(void *TblPtr)
+CFE_Status_t CS_ValidateEepromChecksumDefinitionTable(void *TblPtr)
 {
     int32                              Result       = CFE_SUCCESS;
     int32                              Status       = OS_ERROR;
@@ -125,7 +125,7 @@ int32 CS_ValidateEepromChecksumDefinitionTable(void *TblPtr)
 /* CS Validation Callback function for Memory Table                */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ValidateMemoryChecksumDefinitionTable(void *TblPtr)
+CFE_Status_t CS_ValidateMemoryChecksumDefinitionTable(void *TblPtr)
 {
     int32                              Result       = CFE_SUCCESS;
     int32                              Status       = OS_ERROR;
@@ -209,7 +209,7 @@ int32 CS_ValidateMemoryChecksumDefinitionTable(void *TblPtr)
 /* CS Validation Callback function for Tables Table                */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ValidateTablesChecksumDefinitionTable(void *TblPtr)
+CFE_Status_t CS_ValidateTablesChecksumDefinitionTable(void *TblPtr)
 {
     int32                        Result         = CFE_SUCCESS;
     CS_Def_Tables_Table_Entry_t *StartOfTable   = NULL;
@@ -325,7 +325,7 @@ int32 CS_ValidateTablesChecksumDefinitionTable(void *TblPtr)
 /* CS Validation Callback function for App Table                   */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ValidateAppChecksumDefinitionTable(void *TblPtr)
+CFE_Status_t CS_ValidateAppChecksumDefinitionTable(void *TblPtr)
 {
     int32                     Result = CFE_SUCCESS;
     CS_Def_App_Table_Entry_t *StartOfTable;
@@ -810,11 +810,11 @@ void CS_ProcessNewAppDefinitionTable(const CS_Def_App_Table_Entry_t *DefinitionT
 /* CS  function for initializing new tables                        */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_TableInit(CFE_TBL_Handle_t *DefinitionTableHandle, CFE_TBL_Handle_t *ResultsTableHandle,
-                   void *DefinitionTblPtr, void *ResultsTblPtr, uint16 Table, const char *DefinitionTableName,
-                   const char *ResultsTableName, uint16 NumEntries, const char *DefinitionTableFileName,
-                   const void *DefaultDefTableAddress, uint16 SizeofDefinitionTableEntry,
-                   uint16 SizeofResultsTableEntry, CFE_TBL_CallbackFuncPtr_t CallBackFunction)
+CFE_Status_t CS_TableInit(CFE_TBL_Handle_t *DefinitionTableHandle, CFE_TBL_Handle_t *ResultsTableHandle,
+                          void *DefinitionTblPtr, void *ResultsTblPtr, uint16 Table, const char *DefinitionTableName,
+                          const char *ResultsTableName, uint16 NumEntries, const char *DefinitionTableFileName,
+                          const void *DefaultDefTableAddress, uint16 SizeofDefinitionTableEntry,
+                          uint16 SizeofResultsTableEntry, CFE_TBL_CallbackFuncPtr_t CallBackFunction)
 {
     int32     Result           = CFE_SUCCESS;
     int32     OS_Status        = -1;
@@ -954,8 +954,8 @@ int32 CS_TableInit(CFE_TBL_Handle_t *DefinitionTableHandle, CFE_TBL_Handle_t *Re
 /* CS Handles table updates                                        */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_HandleTableUpdate(void *DefinitionTblPtr, void *ResultsTblPtr, CFE_TBL_Handle_t DefinitionTableHandle,
-                           CFE_TBL_Handle_t ResultsTableHandle, uint16 Table, uint16 NumEntries)
+CFE_Status_t CS_HandleTableUpdate(void *DefinitionTblPtr, void *ResultsTblPtr, CFE_TBL_Handle_t DefinitionTableHandle,
+                                  CFE_TBL_Handle_t ResultsTableHandle, uint16 Table, uint16 NumEntries)
 {
     int32 ReleaseResult1 = CFE_SUCCESS;
     int32 ManageResult1  = CFE_SUCCESS;

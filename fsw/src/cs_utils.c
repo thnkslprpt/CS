@@ -917,7 +917,7 @@ void CS_ResetTablesTblResultEntry(CS_Res_Tables_Table_Entry_t *TablesTblResultEn
 /* Update all tables                                               */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_HandleRoutineTableUpdates(void)
+CFE_Status_t CS_HandleRoutineTableUpdates(void)
 {
     int32 Result    = CFE_SUCCESS;
     int32 ErrorCode = CFE_SUCCESS;
@@ -1001,8 +1001,8 @@ int32 CS_HandleRoutineTableUpdates(void)
     return ErrorCode;
 }
 
-int32 CS_AttemptTableReshare(CS_Res_Tables_Table_Entry_t *ResultsEntry, CFE_TBL_Handle_t *LocalTblHandle,
-                             CFE_TBL_Info_t *TblInfo, cpuaddr *LocalAddress, int32 *ResultGetInfo)
+CFE_Status_t CS_AttemptTableReshare(CS_Res_Tables_Table_Entry_t *ResultsEntry, CFE_TBL_Handle_t *LocalTblHandle,
+                                    CFE_TBL_Info_t *TblInfo, cpuaddr *LocalAddress, int32 *ResultGetInfo)
 {
     int32 Result           = CS_SUCCESS;
     int32 ResultShare      = 0;

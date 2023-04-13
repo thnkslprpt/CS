@@ -50,14 +50,14 @@ void CS_TABLE_PROCESSING_TEST_CFE_ES_GetAppNameHandler1(void *UserObj, UT_EntryK
     strncpy((char *)AppName, "CS", 3);
 }
 
-int32 CS_TABLE_PROCESSING_TEST_CFE_TBL_GetAddressHook(void *UserObj, int32 StubRetcode, uint32 CallCount,
+CFE_Status_t CS_TABLE_PROCESSING_TEST_CFE_TBL_GetAddressHook(void *UserObj, int32 StubRetcode, uint32 CallCount,
                                                       const UT_StubContext_t *Context)
 {
     return CFE_SUCCESS;
 }
 
-int32 CS_TABLE_PROCESSING_TEST_CFE_TBL_LoadHook(void *UserObj, int32 StubRetcode, uint32 CallCount,
-                                                const UT_StubContext_t *Context)
+CFE_Status_t CS_TABLE_PROCESSING_TEST_CFE_TBL_LoadHook(void *UserObj, int32 StubRetcode, uint32 CallCount,
+                                                       const UT_StubContext_t *Context)
 {
     return CFE_SUCCESS;
 }

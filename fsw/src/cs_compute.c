@@ -45,8 +45,8 @@
 /* and cFE core code segments                                      */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue,
-                             bool *DoneWithEntry)
+CFE_Status_t CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue,
+                                    bool *DoneWithEntry)
 {
     uint32  OffsetIntoCurrEntry     = 0;
     cpuaddr FirstAddrThisCycle      = 0;
@@ -116,7 +116,7 @@ int32 CS_ComputeEepromMemory(CS_Res_EepromMemory_Table_Entry_t *ResultsEntry, ui
 /* CS function that computes the checksum for Tables               */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
+CFE_Status_t CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
 {
     uint32  OffsetIntoCurrEntry     = 0;
     cpuaddr FirstAddrThisCycle      = 0;
@@ -304,7 +304,7 @@ int32 CS_ComputeTables(CS_Res_Tables_Table_Entry_t *ResultsEntry, uint32 *Comput
 /* CS function that computes the checksum for Apps                 */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-int32 CS_ComputeApp(CS_Res_App_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
+CFE_Status_t CS_ComputeApp(CS_Res_App_Table_Entry_t *ResultsEntry, uint32 *ComputedCSValue, bool *DoneWithEntry)
 {
     uint32  OffsetIntoCurrEntry     = 0;
     cpuaddr FirstAddrThisCycle      = 0;
