@@ -39,6 +39,11 @@
  **
  **************************************************************************/
 
+/*----------------------------------------------------------------
+ *
+ * Internal helper routine only, not part of API.
+ *
+ *-----------------------------------------------------------------*/
 void CS_DoEnableDisableAppCmd(const CS_NoArgsCmd_t *CmdPtr, uint16 State, uint16 EventId)
 {
     /* command verification variables */
@@ -245,6 +250,11 @@ void CS_RecomputeBaselineAppCmd(const CS_AppNameCmd_t *CmdPtr)
     }
 }
 
+/*----------------------------------------------------------------
+ *
+ * Internal helper routine only, not part of API.
+ *
+ *-----------------------------------------------------------------*/
 static void CS_DoEnableDisableNameAppCmd(const CS_AppNameCmd_t *CmdPtr, uint16 NewState, uint16 EventID)
 {
     /* command verification variables */
