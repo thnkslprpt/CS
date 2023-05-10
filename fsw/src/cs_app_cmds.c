@@ -39,60 +39,98 @@
  **
  **************************************************************************/
 
+void CS_DoEnableDisableAppCmd(const CS_NoArgsCmd_t *CmdPtr, uint16 State, uint16 EventId)
+{
+    /* command verification variables */
+    size_t ExpectedLength = sizeof(CS_NoArgsCmd_t);
+
+    /* Verify command packet length */
+    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+    {
+        if (CS_CheckRecomputeOneshot() == false)
+        {
+            CS_AppData.HkPacket.AppCSState = State;
+
+            if (State == CS_STATE_DISABLED)
+            {
+                CS_ZeroAppTempValues();
+            }
+
+#if (CS_PRESERVE_STATES_ON_PROCESSOR_RESET == true)
+            CS_UpdateCDS();
+#endif
+
+            CFE_EVS_SendEvent(EventId, CFE_EVS_EventType_INFORMATION, "Checksumming of App is %s",
+                              State == CS_STATE_ENABLED ? "Enabled" : "Disabled");
+            CS_AppData.HkPacket.CmdCounter++;
+        }
+    }
+}
+
+void CS_DisableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
+{
+    CS_DoEnableDisableAppCmd(CmdPtr, CS_STATE_DISABLED, CS_DISABLE_APP_INF_EID);
+}
+
+void CS_EnableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
+{
+    CS_DoEnableDisableAppCmd(CmdPtr, CS_STATE_ENABLED, CS_ENABLE_APP_INF_EID);
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                 */
 /* CS Disable background checking of App command                   */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-void CS_DisableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
-{
-    /* command verification variables */
-    size_t ExpectedLength = sizeof(CS_NoArgsCmd_t);
+// void CS_DisableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
+// {
+//     /* command verification variables */
+//     size_t ExpectedLength = sizeof(CS_NoArgsCmd_t);
 
-    /* Verify command packet length */
-    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
-    {
-        if (CS_CheckRecomputeOneshot() == false)
-        {
-            CS_AppData.HkPacket.AppCSState = CS_STATE_DISABLED;
-            CS_ZeroAppTempValues();
+//     /* Verify command packet length */
+//     if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+//     {
+//         if (CS_CheckRecomputeOneshot() == false)
+//         {
+//             CS_AppData.HkPacket.AppCSState = CS_STATE_DISABLED;
+//             CS_ZeroAppTempValues();
 
-#if (CS_PRESERVE_STATES_ON_PROCESSOR_RESET == true)
-            CS_UpdateCDS();
-#endif
+// #if (CS_PRESERVE_STATES_ON_PROCESSOR_RESET == true)
+//             CS_UpdateCDS();
+// #endif
 
-            CFE_EVS_SendEvent(CS_DISABLE_APP_INF_EID, CFE_EVS_EventType_INFORMATION, "Checksumming of App is Disabled");
-            CS_AppData.HkPacket.CmdCounter++;
-        }
-    }
-}
+//             CFE_EVS_SendEvent(CS_DISABLE_APP_INF_EID, CFE_EVS_EventType_INFORMATION, "Checksumming of App is
+//             Disabled"); CS_AppData.HkPacket.CmdCounter++;
+//         }
+//     }
+// }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/*                                                                 */
-/* CS Enable background checking of App command                    */
-/*                                                                 */
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-void CS_EnableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
-{
-    /* command verification variables */
-    size_t ExpectedLength = sizeof(CS_NoArgsCmd_t);
+// /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// /*                                                                 */
+// /* CS Enable background checking of App command                    */
+// /*                                                                 */
+// /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// void CS_EnableAppCmd(const CS_NoArgsCmd_t *CmdPtr)
+// {
+//     /* command verification variables */
+//     size_t ExpectedLength = sizeof(CS_NoArgsCmd_t);
 
-    /* Verify command packet length */
-    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
-    {
-        if (CS_CheckRecomputeOneshot() == false)
-        {
-            CS_AppData.HkPacket.AppCSState = CS_STATE_ENABLED;
+//     /* Verify command packet length */
+//     if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+//     {
+//         if (CS_CheckRecomputeOneshot() == false)
+//         {
+//             CS_AppData.HkPacket.AppCSState = CS_STATE_ENABLED;
 
-#if (CS_PRESERVE_STATES_ON_PROCESSOR_RESET == true)
-            CS_UpdateCDS();
-#endif
+// #if (CS_PRESERVE_STATES_ON_PROCESSOR_RESET == true)
+//             CS_UpdateCDS();
+// #endif
 
-            CFE_EVS_SendEvent(CS_ENABLE_APP_INF_EID, CFE_EVS_EventType_INFORMATION, "Checksumming of App is Enabled");
-            CS_AppData.HkPacket.CmdCounter++;
-        }
-    }
-}
+//             CFE_EVS_SendEvent(CS_ENABLE_APP_INF_EID, CFE_EVS_EventType_INFORMATION, "Checksumming of App is
+//             Enabled"); CS_AppData.HkPacket.CmdCounter++;
+//         }
+//     }
+// }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                 */
@@ -207,111 +245,179 @@ void CS_RecomputeBaselineAppCmd(const CS_AppNameCmd_t *CmdPtr)
     }
 }
 
+static void CS_DoEnableDisableNameAppCmd(const CS_AppNameCmd_t *CmdPtr, uint16 NewState, uint16 EventID)
+{
+    /* command verification variables */
+    size_t ExpectedLength = sizeof(CS_AppNameCmd_t);
+
+    CS_Res_App_Table_Entry_t *ResultsEntry;
+    CS_Def_App_Table_Entry_t *DefinitionEntry;
+    char                      Name[OS_MAX_API_NAME];
+
+    /* Verify command packet length */
+    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+    {
+        if (CS_CheckRecomputeOneshot() == false)
+        {
+            strncpy(Name, CmdPtr->Name, sizeof(Name) - 1);
+            Name[sizeof(Name) - 1] = '\0';
+
+            if (CS_GetAppResTblEntryByName(&ResultsEntry, Name))
+            {
+                ResultsEntry->State = NewState;
+
+                if (NewState == CS_STATE_DISABLED)
+                {
+                    ResultsEntry->TempChecksumValue = 0;
+                    ResultsEntry->ByteOffset        = 0;
+                }
+
+                CFE_EVS_SendEvent(EventID, CFE_EVS_EventType_INFORMATION, "Checksumming of app %s is %s", Name,
+                                  NewState == CS_STATE_ENABLED ? "Enabled" : "Disabled");
+
+                if (CS_GetAppDefTblEntryByName(&DefinitionEntry, Name))
+                {
+                    DefinitionEntry->State = NewState;
+                    CS_ResetTablesTblResultEntry(CS_AppData.AppResTablesTblPtr);
+                    CFE_TBL_Modified(CS_AppData.DefAppTableHandle);
+                }
+                else
+                {
+                    CFE_EVS_SendEvent(NewState == CS_STATE_ENABLED ? CS_ENABLE_APP_DEF_NOT_FOUND_DBG_EID
+                                                                   : CS_DISABLE_APP_DEF_NOT_FOUND_DBG_EID,
+                                      CFE_EVS_EventType_DEBUG, "CS unable to update apps definition table for entry %s",
+                                      Name);
+                }
+
+                CS_AppData.HkPacket.CmdCounter++;
+            }
+            else
+            {
+                CFE_EVS_SendEvent(NewState == CS_STATE_ENABLED ? CS_ENABLE_APP_UNKNOWN_NAME_ERR_EID
+                                                               : CS_DISABLE_APP_UNKNOWN_NAME_ERR_EID,
+                                  CFE_EVS_EventType_ERROR, "App %s app command failed, app %s not found",
+                                  NewState == CS_STATE_ENABLED ? "enable" : "disable", Name);
+                CS_AppData.HkPacket.CmdErrCounter++;
+            }
+        } /* end InProgress if */
+    }
+}
+
+void CS_DisableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
+{
+    CS_DoEnableDisableNameAppCmd(CmdPtr, CS_STATE_DISABLED, CS_DISABLE_APP_NAME_INF_EID);
+}
+
+void CS_EnableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
+{
+    CS_DoEnableDisableNameAppCmd(CmdPtr, CS_STATE_ENABLED, CS_ENABLE_APP_NAME_INF_EID);
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*                                                                 */
 /* CS Disable a specific entry in the App table command            */
 /*                                                                 */
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-void CS_DisableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
-{
-    /* command verification variables */
-    size_t ExpectedLength = sizeof(CS_AppNameCmd_t);
+// void CS_DisableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
+// {
+//     /* command verification variables */
+//     size_t ExpectedLength = sizeof(CS_AppNameCmd_t);
 
-    CS_Res_App_Table_Entry_t *ResultsEntry;
-    CS_Def_App_Table_Entry_t *DefinitionEntry;
-    char                      Name[OS_MAX_API_NAME];
+//     CS_Res_App_Table_Entry_t *ResultsEntry;
+//     CS_Def_App_Table_Entry_t *DefinitionEntry;
+//     char                      Name[OS_MAX_API_NAME];
 
-    /* Verify command packet length */
-    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
-    {
-        if (CS_CheckRecomputeOneshot() == false)
-        {
-            strncpy(Name, CmdPtr->Name, sizeof(Name) - 1);
-            Name[sizeof(Name) - 1] = '\0';
+//     /* Verify command packet length */
+//     if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+//     {
+//         if (CS_CheckRecomputeOneshot() == false)
+//         {
+//             strncpy(Name, CmdPtr->Name, sizeof(Name) - 1);
+//             Name[sizeof(Name) - 1] = '\0';
 
-            if (CS_GetAppResTblEntryByName(&ResultsEntry, Name))
-            {
-                ResultsEntry->State             = CS_STATE_DISABLED;
-                ResultsEntry->TempChecksumValue = 0;
-                ResultsEntry->ByteOffset        = 0;
+//             if (CS_GetAppResTblEntryByName(&ResultsEntry, Name))
+//             {
+//                 ResultsEntry->State             = CS_STATE_DISABLED;
+//                 ResultsEntry->TempChecksumValue = 0;
+//                 ResultsEntry->ByteOffset        = 0;
 
-                CFE_EVS_SendEvent(CS_DISABLE_APP_NAME_INF_EID, CFE_EVS_EventType_INFORMATION,
-                                  "Checksumming of app %s is Disabled", Name);
+//                 CFE_EVS_SendEvent(CS_DISABLE_APP_NAME_INF_EID, CFE_EVS_EventType_INFORMATION,
+//                                   "Checksumming of app %s is Disabled", Name);
 
-                if (CS_GetAppDefTblEntryByName(&DefinitionEntry, Name))
-                {
-                    DefinitionEntry->State = CS_STATE_DISABLED;
-                    CS_ResetTablesTblResultEntry(CS_AppData.AppResTablesTblPtr);
-                    CFE_TBL_Modified(CS_AppData.DefAppTableHandle);
-                }
-                else
-                {
-                    CFE_EVS_SendEvent(CS_DISABLE_APP_DEF_NOT_FOUND_DBG_EID, CFE_EVS_EventType_DEBUG,
-                                      "CS unable to update apps definition table for entry %s", Name);
-                }
+//                 if (CS_GetAppDefTblEntryByName(&DefinitionEntry, Name))
+//                 {
+//                     DefinitionEntry->State = CS_STATE_DISABLED;
+//                     CS_ResetTablesTblResultEntry(CS_AppData.AppResTablesTblPtr);
+//                     CFE_TBL_Modified(CS_AppData.DefAppTableHandle);
+//                 }
+//                 else
+//                 {
+//                     CFE_EVS_SendEvent(CS_DISABLE_APP_DEF_NOT_FOUND_DBG_EID, CFE_EVS_EventType_DEBUG,
+//                                       "CS unable to update apps definition table for entry %s", Name);
+//                 }
 
-                CS_AppData.HkPacket.CmdCounter++;
-            }
+//                 CS_AppData.HkPacket.CmdCounter++;
+//             }
 
-            else
-            {
-                CFE_EVS_SendEvent(CS_DISABLE_APP_UNKNOWN_NAME_ERR_EID, CFE_EVS_EventType_ERROR,
-                                  "App disable app command failed, app %s not found", Name);
-                CS_AppData.HkPacket.CmdErrCounter++;
-            }
-        } /* end InProgress if */
-    }
-}
+//             else
+//             {
+//                 CFE_EVS_SendEvent(CS_DISABLE_APP_UNKNOWN_NAME_ERR_EID, CFE_EVS_EventType_ERROR,
+//                                   "App disable app command failed, app %s not found", Name);
+//                 CS_AppData.HkPacket.CmdErrCounter++;
+//             }
+//         } /* end InProgress if */
+//     }
+// }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/*                                                                 */
-/* CS Enable a specific entry in the App table command             */
-/*                                                                 */
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-void CS_EnableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
-{
-    /* command verification variables */
-    size_t ExpectedLength = sizeof(CS_AppNameCmd_t);
+// /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// /*                                                                 */
+// /* CS Enable a specific entry in the App table command             */
+// /*                                                                 */
+// /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// void CS_EnableNameAppCmd(const CS_AppNameCmd_t *CmdPtr)
+// {
+//     /* command verification variables */
+//     size_t ExpectedLength = sizeof(CS_AppNameCmd_t);
 
-    CS_Res_App_Table_Entry_t *ResultsEntry;
-    CS_Def_App_Table_Entry_t *DefinitionEntry;
-    char                      Name[OS_MAX_API_NAME];
+//     CS_Res_App_Table_Entry_t *ResultsEntry;
+//     CS_Def_App_Table_Entry_t *DefinitionEntry;
+//     char                      Name[OS_MAX_API_NAME];
 
-    /* Verify command packet length */
-    if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
-    {
-        if (CS_CheckRecomputeOneshot() == false)
-        {
-            strncpy(Name, CmdPtr->Name, sizeof(Name) - 1);
-            Name[sizeof(Name) - 1] = '\0';
+//     /* Verify command packet length */
+//     if (CS_VerifyCmdLength(&CmdPtr->CmdHeader.Msg, ExpectedLength))
+//     {
+//         if (CS_CheckRecomputeOneshot() == false)
+//         {
+//             strncpy(Name, CmdPtr->Name, sizeof(Name) - 1);
+//             Name[sizeof(Name) - 1] = '\0';
 
-            if (CS_GetAppResTblEntryByName(&ResultsEntry, Name))
-            {
-                ResultsEntry->State = CS_STATE_ENABLED;
+//             if (CS_GetAppResTblEntryByName(&ResultsEntry, Name))
+//             {
+//                 ResultsEntry->State = CS_STATE_ENABLED;
 
-                CFE_EVS_SendEvent(CS_ENABLE_APP_NAME_INF_EID, CFE_EVS_EventType_INFORMATION,
-                                  "Checksumming of app %s is Enabled", Name);
+//                 CFE_EVS_SendEvent(CS_ENABLE_APP_NAME_INF_EID, CFE_EVS_EventType_INFORMATION,
+//                                   "Checksumming of app %s is Enabled", Name);
 
-                if (CS_GetAppDefTblEntryByName(&DefinitionEntry, Name))
-                {
-                    DefinitionEntry->State = CS_STATE_ENABLED;
-                    CS_ResetTablesTblResultEntry(CS_AppData.AppResTablesTblPtr);
-                    CFE_TBL_Modified(CS_AppData.DefAppTableHandle);
-                }
-                else
-                {
-                    CFE_EVS_SendEvent(CS_ENABLE_APP_DEF_NOT_FOUND_DBG_EID, CFE_EVS_EventType_DEBUG,
-                                      "CS unable to update apps definition table for entry %s", Name);
-                }
+//                 if (CS_GetAppDefTblEntryByName(&DefinitionEntry, Name))
+//                 {
+//                     DefinitionEntry->State = CS_STATE_ENABLED;
+//                     CS_ResetTablesTblResultEntry(CS_AppData.AppResTablesTblPtr);
+//                     CFE_TBL_Modified(CS_AppData.DefAppTableHandle);
+//                 }
+//                 else
+//                 {
+//                     CFE_EVS_SendEvent(CS_ENABLE_APP_DEF_NOT_FOUND_DBG_EID, CFE_EVS_EventType_DEBUG,
+//                                       "CS unable to update apps definition table for entry %s", Name);
+//                 }
 
-                CS_AppData.HkPacket.CmdCounter++;
-            }
-            else
-            {
-                CFE_EVS_SendEvent(CS_ENABLE_APP_UNKNOWN_NAME_ERR_EID, CFE_EVS_EventType_ERROR,
-                                  "App enable app command failed, app %s not found", Name);
-                CS_AppData.HkPacket.CmdErrCounter++;
-            }
-        } /* end InProgress if */
-    }
-}
+//                 CS_AppData.HkPacket.CmdCounter++;
+//             }
+//             else
+//             {
+//                 CFE_EVS_SendEvent(CS_ENABLE_APP_UNKNOWN_NAME_ERR_EID, CFE_EVS_EventType_ERROR,
+//                                   "App enable app command failed, app %s not found", Name);
+//                 CS_AppData.HkPacket.CmdErrCounter++;
+//             }
+//         } /* end InProgress if */
+//     }
+// }
